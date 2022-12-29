@@ -27,11 +27,12 @@
             <TextBox Grid.Column="1" x:Name="CountTB" Height="60" Width="150" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBlock Grid.Column="0" Text="Count of Symbols" HorizontalAlignment="Center" FontSize="24"  TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        
-        
 
-        <TextBlock Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2" x:Name="Field" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"
-                   TextWrapping="Wrap" Margin="30" Height="250" Width="600" TextAlignment="Center"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" x:Name="FieldData" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"
+                   TextWrapping="Wrap"  Height="150" Width="600" TextAlignment="Center"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" x:Name="FieldMemory" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"
+                   TextWrapping="Wrap"  Height="150" Width="600" TextAlignment="Center"/>
 
         <Grid Grid.RowSpan="2">
             <Grid.ColumnDefinitions>

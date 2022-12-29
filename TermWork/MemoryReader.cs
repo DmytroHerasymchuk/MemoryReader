@@ -11,7 +11,6 @@ namespace TermWork
 {
     public class MemoryReader
     {
-        public List<Process> Processes = new List<Process>();
 
         const int PROCESS_WM_READ = 0x0010;
 
@@ -36,6 +35,29 @@ namespace TermWork
             ReadProcessMemory((int)processHandle, address, buffer, buffer.Length, ref bytesRead);
             string result;
             result = BitConverter.ToString(buffer);
+            return result;
+        }
+        public static string ReadData(int PID, int address, int countOfSymbols)
+        {
+            Process process = Process.GetProcessById(PID);
+            IntPtr processHandle = OpenProcess(PROCESS_WM_READ, false, process.Id);
+
+            int bytesRead = 0;
+            byte[] buffer = new byte[countOfSymbols * 2];
+
+
+
+            ReadProcessMemory((int)processHandle, address, buffer, buffer.Length, ref bytesRead);
+            char[] resultChar = new char[buffer.Length-1];
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                if (buffer[i] != 0)
+                {
+                    resultChar[i] = BitConverter.ToChar(buffer, i);
+                }
+            }
+            string result = new string(resultChar);
+            
             return result;
         }
     }
